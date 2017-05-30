@@ -52,7 +52,7 @@ func main() {
 	}
 
 	// Setup schedule for daily scrum reminer
-	scheduler.Every().Day().At(dailyScrumTime).Run(remindDailyScrum)
+	scheduler.Every().Thursday().At(dailyScrumTime).Run(remindDailyScrum)
 
 	settingConfig, err := parseConfig("setting.json")
 	if err != nil {
