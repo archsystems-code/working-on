@@ -11,7 +11,7 @@ type Context struct {
 }
 
 func NewContext() (*Context, error) {
-	dbURL := os.Getenv("MONGOLAB_URI")
+	dbURL := os.Getenv("MONGODB_URI")
 	AuthDatabase := os.Getenv("DB_NAME")
 	session, err := mgo.Dial(dbURL)
 	if err != nil {
