@@ -1,22 +1,8 @@
 {
     "items": [
         {
-            "channel": "#general",
-            "token": "DWARVESF_TOKEN"
-        },
-        {
-            "channel": "#general",
-            "tags": [
-                "#classify"
-            ],
-            "token": "CLASSIFY_TOKEN"
-        },
-        {
-            "channel": "#general",
-            "tags": [
-                "#clipchute"
-            ],
-            "token": "CLIPCHUTE_TOKEN"
+            "channel": "#asimarketing",
+            "token": "xoxb-352320045682-gjkVGr0xQsrkdTTqA3hKlEfr"
         }
     ]
 }
