@@ -188,8 +188,8 @@ func addItem(text string, userID string, userName string, configuration Configur
 func postItem(token string, channel string, text string) {
 	s := slack.New(token)
 	params := slack.PostMessageParameters{}
-	params.IconURL = "http://i.imgur.com/fLcxkel.png"
-	params.Username = "oshin"
+	params.IconURL = "http://www2.archsystems.com/l/67312/2018-04-25/bg6by5/67312/179176/working.png"
+	params.Username = "workstatus"
 	s.PostMessage(channel, text, params)
 }
 
@@ -240,8 +240,8 @@ func remindDailyScrum() {
 	s := slack.New(botToken)
 
 	params := slack.PostMessageParameters{}
-	params.IconURL = "http://i.imgur.com/fLcxkel.png"
-	params.Username = "oshin"
+	params.IconURL = "http://www2.archsystems.com/l/67312/2018-04-25/bg6by5/67312/179176/working.png"
+	params.Username = "workstatus"
 
 	text := "Đến giờ daily scrum rồi mấy bé <!here|here> " + url + " :4head:"
 	channel := "#random"
@@ -353,13 +353,13 @@ func postDigest(channel, botToken string, tags []string) func() {
 			slack.Attachment{
 				Color:      "#7CD197",
 				Fields:     fields,
-				Footer:     "Oshin Bot",
-				FooterIcon: "http://i.imgur.com/fLcxkel.png",
+				Footer:     "workstatus",
+				FooterIcon: "http://www2.archsystems.com/l/67312/2018-04-25/bg6by5/67312/179176/working.png",
 			},
 		}
 
-		params.IconURL = "http://i.imgur.com/fLcxkel.png"
-		params.Username = "oshin"
+		params.IconURL = "http://www2.archsystems.com/l/67312/2018-04-25/bg6by5/67312/179176/working.png"
+		params.Username = "workstatus"
 
 		if count > 0 {
 			s.PostMessage(channel, title, params)
