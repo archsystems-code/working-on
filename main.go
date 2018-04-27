@@ -48,11 +48,14 @@ func main() {
 		if arrow.Now().CFormat("%A") == "Friday" {
 			digestTime := os.Getenv("F_DIGEST_TIME")
 			_, err := scheduler.Every().Day().At(digestTime).Run(digestJob)
+			if err != nil {
+				log.Infoln(err)
+			}
 		} else {
 			_, err := scheduler.Every().Day().At(digestTime).Run(digestJob)
-		}
-		if err != nil {
-			log.Infoln(err)
+			if err != nil {
+				log.Infoln(err)
+			}
 		}
 	}
 
