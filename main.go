@@ -33,7 +33,10 @@ func main() {
 
 	// Read configuration from file and env
 	port := os.Getenv("PORT")
-	digestTime := os.Getenv("DIGEST_TIME")
+	digestTime := os.Getenv("M-T_DIGEST_TIME")
+	if arrow.Now().CFormat("%A") == "Friday" {
+		digestTime := os.Getenv("F_DIGEST_TIME")
+	}
 	dailyScrumTime := os.Getenv("DAILYSCRUM_TIME")
 	gorelic.InitNewrelicAgent(os.Getenv("NEW_RELIC_LICENSE_KEY"), "working", false)
 
