@@ -122,7 +122,7 @@ func on(config Configuration) func(c *gin.Context) {
 		userID := c.PostForm("user_id")
 		userName := c.PostForm("user_name")
 
-		addItem(text, userID, userName, config, "*%s* is *working* on: %s")
+		addItem(text, userID, userName, config, "%s is working on: %s")
 	}
 }
 
@@ -166,7 +166,7 @@ func addItem(text string, userID string, userName string, configuration Configur
 	}
 
 	// <@U024BE7LH|bob>: format text to match Slack format
-	userName = fmt.Sprintf("<@%s|%s>", userID, userName)
+	userName = fmt.Sprintf("%s", userID, userName)
 	title := fmt.Sprintf(format, userName, text)
 
 	postItem(botToken, channel, title)
@@ -351,7 +351,7 @@ func postDigest(channel, botToken string, tags []string) func() {
 
 		params.Attachments = []slack.Attachment{
 			slack.Attachment{
-				Color:      "#7CD197",
+				Color:      "#AD619D",
 				Fields:     fields,
 				Footer:     "workstatus",
 				FooterIcon: "http://www2.archsystems.com/l/67312/2018-04-25/bg6by5/67312/179176/working.png",
