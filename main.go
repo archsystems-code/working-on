@@ -34,9 +34,6 @@ func main() {
 	// Read configuration from file and env
 	port := os.Getenv("PORT")
 	digestTime := os.Getenv("M-T_DIGEST_TIME")
-	if arrow.Now().CFormat("%A") == "Friday" {
-		digestTime := os.Getenv("F_DIGEST_TIME")
-	}
 	dailyScrumTime := os.Getenv("DAILYSCRUM_TIME")
 	gorelic.InitNewrelicAgent(os.Getenv("NEW_RELIC_LICENSE_KEY"), "working", false)
 
@@ -48,7 +45,12 @@ func main() {
 	// Setup schedule digest jobs
 	for _, i := range digestConfig.Items {
 		digestJob := postDigest(i.Channel, os.Getenv("BOT_TOKEN"), i.Tags)
-		_, err := scheduler.Every().Day().At(digestTime).Run(digestJob)
+		if arrow.Now().CFormat("%A") == "Friday" {
+			digestTime := os.Getenv("F_DIGEST_TIME")
+			_, err := scheduler.Every().Day().At(digestTime).Run(digestJob)
+		} else {
+			_, err := scheduler.Every().Day().At(digestTime).Run(digestJob)
+		}
 		if err != nil {
 			log.Infoln(err)
 		}
