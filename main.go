@@ -288,7 +288,8 @@ func postDigest(channel, botToken string, tags []string) func() {
 		fields := []slack.AttachmentField{}
 
 		today := arrow.Now().UTC()
-		toDate := time.Date(today.Year(), today.Month(), today.Day(), 8, 30, 0, 0, time.UTC)
+		yesterday := arrow.UTC().Yesterday()
+		toDate := time.Date(yesterday.Year(), yesterday.Month(), yesterday.Day(), 17, 30, 0, 0, time.UTC)
 
 		title := fmt.Sprintf(" :rocket: >> Team daily digest for *%s* :rocket: <!channel>", arrow.Now().CFormat("%Y-%m-%d"))
 
