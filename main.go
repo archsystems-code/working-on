@@ -287,7 +287,6 @@ func postDigest(channel, botToken string, tags []string) func() {
 		params := slack.PostMessageParameters{}
 		fields := []slack.AttachmentField{}
 
-		today := arrow.Now().UTC()
 		yesterday := arrow.UTC().Yesterday()
 		toDate := time.Date(yesterday.Year(), yesterday.Month(), yesterday.Day(), 17, 30, 0, 0, time.UTC)
 
